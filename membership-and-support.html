@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership and Support - Design Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <button id="show-menu-arrow"><i class="fas fa-arrow-right"></i></button>
+
+    <!-- Inclusión del menú lateral -->
+    <div class="main-content">
+        <div id="menu">
+            <h2 id="menu-header">Menu</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home icon"></i> Home</a></li>
+                    <li><a href="visit-and-do.html"><i class="fas fa-map-marked-alt icon"></i> Visit and do</a></li>
+                    <li><a href="exhibitions.html"><i class="fas fa-image icon"></i> Exhibitions</a></li>
+                    <li><a href="membership-and-support.html" class="active"><i class="fas fa-users icon"></i>
+                            Membership and support</a></li>
+                    <li><a href="contact-and-about.html"><i class="fas fa-address-book icon"></i> Contact and about</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Contenido principal de Membership and Support -->
+        <div id="content" style="margin-left: 270px; width: calc(100% - 270px);">
+            <div class="header-container"
+                style="padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                <h1 style="margin: 0;">Membership and Support</h1>
+            </div>
+
+            <div class="info-block">
+                <h2><i class="fas fa-trophy" style="color: #f9d71c; margin-right: 10px;"></i> Membership Options</h2>
+                <ul>
+                    <li><strong>Individual:</strong> Perfect for design enthusiasts who frequent the museum.</li>
+                    <li><strong>Family:</strong> Great for families looking to explore art and design together.</li>
+                    <li><strong>Student:</strong> Special pricing available for students.</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Tarjetas de Membresía -->
+            <div class="membership-section"
+                style="background-image: url('assets/images/background-image.jpg'); background-size: cover; background-repeat: no-repeat; padding: 20px; border-radius: 15px;">
+                <div class="membership-cards">
+                    <div class="membership-card">
+                        <i class="fas fa-user"></i>
+                        <h3>Individual</h3>
+                        <p>Perfect for design enthusiasts who frequent the museum. Includes free entry to all
+                            exhibitions and events.</p>
+                        <button>Join Now</button>
+                    </div>
+
+                    <div class="membership-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Family</h3>
+                        <p>Great for families looking to explore art and design together. Discounts on workshops and
+                            special family events.</p>
+                        <button>Join Now</button>
+                    </div>
+
+                    <div class="membership-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Student</h3>
+                        <p>Special pricing available for students. Access to lectures and educational material.</p>
+                        <button>Join Now</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Sección de beneficios de membresía -->
+            <div class="info-block">
+                <h2><i class="fas fa-gift" style="color: #f9d71c; margin-right: 10px;"></i> Membership Benefits</h2>
+                <p>Join the Design Museum membership and enjoy exclusive benefits including free entry to all
+                    exhibitions, discounts in our shop and café, and invitations to special events.</p>
+            </div>
+
+
+            <!-- Sección de cómo apoyar al museo -->
+            <div class="info-block">
+                <h2><i class="fas fa-hands-helping" style="color: #f9d71c; margin-right: 10px;"></i> Support the Museum
+                </h2>
+                <p>Learn about various ways you can support the Design Museum, including volunteer opportunities,
+                    donations, and corporate partnerships.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Design Museum. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('load', function () {
+                document.documentElement.classList.remove('loading');
+            });
+
+            document.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    const target = e.currentTarget;
+                    if (!target.href.includes('#') && !target.href.startsWith('javascript:')) {
+                        e.preventDefault();
+                        const newUrl = this.href;
+
+                        document.documentElement.classList.add('loading');
+
+                        setTimeout(function () {
+                            window.location.href = newUrl;
+                        }, 500);
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menu = document.getElementById('menu');
+            const content = document.getElementById('content');
+            const showMenuButton = document.getElementById('show-menu-arrow');
+
+            function toggleMenu() {
+                menu.classList.toggle('collapsed');
+                updateContentLayout(menu.classList.contains('collapsed'));
+            }
+
+            function updateContentLayout(isCollapsed) {
+                if (isCollapsed) {
+                    content.style.marginLeft = '20px';
+                    content.style.width = 'calc(100% - 20px)';
+                    showMenuButton.style.display = 'block';
+                } else {
+                    content.style.marginLeft = '270px';
+                    content.style.width = 'calc(100% - 270px)';
+                    showMenuButton.style.display = 'none';
+                }
+            }
+
+            updateContentLayout(menu.classList.contains('collapsed'));
+
+            // Event listeners
+            menu.addEventListener('click', toggleMenu);
+            showMenuButton.addEventListener('click', function () {
+                if (menu.classList.contains('collapsed')) {
+                    menu.classList.remove('collapsed');
+                    updateContentLayout(false);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

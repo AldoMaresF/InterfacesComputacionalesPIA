@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact and About - Design Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        #content {
+            transition: margin-left 0.3s, width 0.3s;
+        }
+
+        .info-block {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="show-menu-arrow"><i class="fas fa-arrow-right"></i></button>
+
+    <!-- Menú lateral -->
+    <div class="main-content">
+        <div id="menu">
+            <h2 id="menu-header">Menu</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home icon"></i> Home</a></li>
+                    <li><a href="visit-and-do.html"><i class="fas fa-map-marked-alt icon"></i> Visit and do</a></li>
+                    <li><a href="exhibitions.html"><i class="fas fa-image icon"></i> Exhibitions</a></li>
+                    <li><a href="membership-and-support.html"><i class="fas fa-users icon"></i> Membership and
+                            support</a></li>
+                    <li><a href="contact-and-about.html" class="active"><i class="fas fa-address-book icon"></i> Contact
+                            and about</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Contenido principal -->
+        <div id="content" style="margin-left: 270px; width: calc(100% - 270px);">
+            <div class="header-container"
+                style="padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                <h1 style="margin: 0;">Contact and About</h1>
+            </div>
+
+            <!-- Sección de contacto -->
+            <div class="info-block">
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p>If you have any questions or need more information, feel free to reach out through the form below or
+                    call us directly.</p>
+                <div class="contact-form">
+                    <div>
+                        <input type="text" placeholder="Your Name">
+                        <input type="email" placeholder="Your Email">
+                        <input type="text" placeholder="Subject">
+                    </div>
+                    <div>
+                        <textarea placeholder="Your Message" rows="5"></textarea>
+                        <button type="submit">Send Message</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de información adicional -->
+            <div class="info-block">
+                <h2><i class="fas fa-info-circle"></i> About the Design Museum</h2>
+                <p>The Design Museum is dedicated to showcasing the wonders of design from around the world. Located in
+                    London, we celebrate creativity, innovation, and inspiration in every exhibition and event we host.
+                </p>
+                <p>Founded in 1989, the museum has grown to be a leading institution in the global design community,
+                    featuring both contemporary and historical pieces.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Design Museum. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menu = document.getElementById('menu');
+            const content = document.getElementById('content');
+            const showMenuButton = document.getElementById('show-menu-arrow');
+
+            function toggleMenu() {
+                menu.classList.toggle('collapsed');
+                updateContentLayout(menu.classList.contains('collapsed'));
+            }
+
+            function updateContentLayout(isCollapsed) {
+                if (isCollapsed) {
+                    content.style.marginLeft = '60px';
+                    content.style.width = 'calc(100% - 60px)';
+                    showMenuButton.style.display = 'block';
+                } else {
+                    content.style.marginLeft = '270px';
+                    content.style.width = 'calc(100% - 270px)';
+                    showMenuButton.style.display = 'none';
+                }
+            }
+
+            updateContentLayout(menu.classList.contains('collapsed'));
+
+            // Event listeners
+            menu.addEventListener('click', toggleMenu);
+            showMenuButton.addEventListener('click', function () {
+                if (menu.classList.contains('collapsed')) {
+                    menu.classList.remove('collapsed');
+                    updateContentLayout(false);
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

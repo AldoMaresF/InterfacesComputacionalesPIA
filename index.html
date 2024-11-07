@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Museum - Mejorado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <button id="show-menu-arrow"><i class="fas fa-arrow-right"></i></button>
+
+    <!-- Contenedor principal para menú y contenido -->
+    <div class="main-content">
+        <div id="menu">
+            <h2 id="menu-header">Menu</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home icon"></i> Home</a></li>
+                    <li><a href="visit-and-do.html"><i class="fas fa-map-marked-alt icon"></i> Visit and do</a></li>
+                    <li><a href="exhibitions.html"><i class="fas fa-image icon"></i> Exhibitions</a></li>
+                    <li><a href="membership-and-support.html"><i class="fas fa-users icon"></i> Membership and
+                            support</a></li>
+                    <li><a href="contact-and-about.html"><i class="fas fa-address-book icon"></i> Contact and about</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Contenido principal -->
+        <div id="content">
+            <section id="banner">
+                <h2>WELCOME TO THE DESIGN MUSEUM</h2>
+                <p>Located in London, the world's leading museum devoted to contemporary design in every form.</p>
+                <button>Plan Your Visit</button>
+            </section>
+
+            <!-- Sección de Información Básica -->
+            <section id="info">
+                <div class="info-block">
+                    <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+                    <p>224 - 238 Kensington High Street, London W8 6AG</p>
+                    <a href="#">Getting Here</a>
+                </div>
+
+                <div class="info-block">
+                    <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+                    <p>10:00 – 17:00 Monday to Thursday<br>10:00 – 18:00 Friday to Sunday</p>
+                    <a href="#">Opening Times</a>
+                </div>
+
+                <div class="info-block">
+                    <h3><i class="fas fa-calendar-alt"></i> Plan Your Visit</h3>
+                    <p>All you need to know before your visit.</p>
+                    <a href="#">Plan Your Visit</a>
+                </div>
+
+                <div class="info-block">
+                    <h3><i class="fas fa-wheelchair"></i> Access</h3>
+                    <p>We want everyone's visit to be enjoyable and inclusive to the widest possible audience.</p>
+                    <a href="#">Access Information</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Design Museum. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('load', function () {
+                document.documentElement.classList.remove('loading');
+            });
+
+
+            document.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    const target = e.currentTarget;
+                    if (!target.href.includes('#') && !target.href.startsWith('javascript:')) {
+                        e.preventDefault();
+                        const newUrl = this.href;
+
+                        document.documentElement.classList.add('loading');
+
+                        setTimeout(function () {
+                            window.location.href = newUrl;
+                        }, 500);
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menu = document.getElementById('menu');
+            const content = document.getElementById('content');
+            const showMenuButton = document.getElementById('show-menu-arrow');
+
+            function toggleMenu() {
+                menu.classList.toggle('collapsed');
+                updateContentLayout(menu.classList.contains('collapsed'));
+            }
+
+            function updateContentLayout(isCollapsed) {
+                if (isCollapsed) {
+                    content.style.marginLeft = '20px';
+                    content.style.width = 'calc(100% - 20px)';
+                    showMenuButton.style.display = 'block';
+                } else {
+                    content.style.marginLeft = '270px';
+                    content.style.width = 'calc(100% - 270px)';
+                    showMenuButton.style.display = 'none';
+                }
+            }
+
+            updateContentLayout(menu.classList.contains('collapsed'));
+
+            menu.addEventListener('click', toggleMenu);
+            showMenuButton.addEventListener('click', function () {
+                if (menu.classList.contains('collapsed')) {
+                    menu.classList.remove('collapsed');
+                    updateContentLayout(false);
+                }
+            });
+        });
+    </script>
+
+    </script>
+</body>
+
+</html>

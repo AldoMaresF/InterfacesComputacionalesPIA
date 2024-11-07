@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibitions - Design Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <button id="show-menu-arrow"><i class="fas fa-arrow-right"></i></button>
+
+    <!-- Inclusión del menú lateral -->
+    <div class="main-content">
+        <div id="menu">
+            <h2 id="menu-header">Menu</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home icon"></i> Home</a></li>
+                    <li><a href="visit-and-do.html"><i class="fas fa-map-marked-alt icon"></i> Visit and do</a></li>
+                    <li><a href="exhibitions.html"><i class="fas fa-image icon"></i> Exhibitions</a></li>
+                    <li><a href="membership-and-support.html"><i class="fas fa-users icon"></i> Membership and
+                            support</a></li>
+                    <li><a href="contact-and-about.html"><i class="fas fa-address-book icon"></i> Contact and about</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Contenido principal de Exhibitions -->
+        <div id="content" style="margin-left: 270px; width: calc(100% - 270px);">
+            <div class="header-container"
+                style="padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                <h1 style="margin: 0;">Exhibitions</h1>
+            </div>
+
+            <!-- Sección de exhibiciones actuales -->
+            <div class="info-block" style="margin-top: 30px;">
+                <h2><i class="fas fa-paint-brush"></i> Current Exhibitions</h2>
+                <div class="exhibition-item" style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <img src="assets/images/exhibition1.jpg" alt="Exhibition 1"
+                        style="width: 200px; height: 150px; object-fit: cover; border-radius: 10px; margin-right: 20px;">
+                    <div>
+                        <h3>Design Innovations 2024</h3>
+                        <p>Explore the latest trends and innovations in contemporary design.</p>
+                        <button onclick="showDetails('Design Innovations 2024')"
+                            style="background-color: #f9d71c; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Learn
+                            More</button>
+                    </div>
+                </div>
+
+                <div class="exhibition-item" style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <img src="assets/images/exhibition2.jpg" alt="Exhibition 2"
+                        style="width: 200px; height: 150px; object-fit: cover; border-radius: 10px; margin-right: 20px;">
+                    <div>
+                        <h3>Art of Sustainability</h3>
+                        <p>An insightful look at how design intersects with sustainable practices.</p>
+                        <button onclick="showDetails('Art of Sustainability')"
+                            style="background-color: #f9d71c; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Learn
+                            More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendario de próximas exhibiciones -->
+            <div class="info-block">
+                <h2><i class="fas fa-calendar-alt"></i> Upcoming Exhibitions Calendar</h2>
+                <div id="calendar"
+                    style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-top: 20px;">
+                    <!-- Encabezados de los días de la semana -->
+                    <div style="text-align: center; padding: 10px; background-color: #f2f2f2; font-weight: bold;">Sun
+                    </div>
+                    <div style="text-align: center; padding: 10px; background-color: #f2f2f2; font-weight: bold;">Mon
+                    </div>
+                    <div style="text-align: center; padding: 10px; background-color: #f2f2f2; font-weight: bold;">Tue
+                    </div>
+                    <div style="text-align: center; padding: 10px; background-color: #f2f2f2; font-weight: bold;">Wed
+                    </div>
+                    <div style="text-align: center; padding: 10px; background-color: #f2f2f2; font-weight: bold;">Thu
+                    </div>
+                    <div style="text-align: center; padding: 10px; background-color: #f2f2f2; font-weight: bold;">Fri
+                    </div>
+                    <div style="text-align: center; padding: 10px; background-color: #f2f2f2; font-weight: bold;">Sat
+                    </div>
+                    <!-- Días del calendario -->
+                    <div></div> <!-- Espacios vacíos al inicio del mes -->
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 1, 2024')">1</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 2, 2024')">2</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; background-color: #f9d71c;"
+                        onclick="showEventDetails('March 3, 2024 - Opening of Art of Sustainability')">3</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 4, 2024 - Photography in Design')">4</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 5, 2024 - Women in Design Panel')">5</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; background-color: #f9d71c;"
+                        onclick="showEventDetails('March 6, 2024 - Modernist Design Trends')">6</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 7, 2024')">7</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 8, 2024 - Interactive Design Exhibits')">8</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; background-color: #f9d71c;"
+                        onclick="showEventDetails('March 9, 2024 - Urban Design Workshop')">9</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 10, 2024 - Retrospective on 20th Century Design')">10</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 11, 2024 - Retrospective on 20th Century Design')">11</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 12, 2024 - Retrospective on 20th Century Design')">12</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 13, 2024 - Retrospective on 20th Century Design')">13</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 14, 2024 - Retrospective on 20th Century Design')">14</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 15, 2024 - Retrospective on 20th Century Design')">15</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 16, 2024 - Retrospective on 20th Century Design')">16</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 17, 2024 - Retrospective on 20th Century Design')">17</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 18, 2024 - Retrospective on 20th Century Design')">18</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 19, 2024 - Retrospective on 20th Century Design')">19</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 20, 2024 - Retrospective on 20th Century Design')">20</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 21, 2024 - Retrospective on 20th Century Design')">21</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 22, 2024 - Retrospective on 20th Century Design')">22</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 23, 2024 - Retrospective on 20th Century Design')">23</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 24, 2024 - Retrospective on 20th Century Design')">24</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 25, 2024 - Retrospective on 20th Century Design')">25</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 26, 2024 - Retrospective on 20th Century Design')">26</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 27, 2024 - Retrospective on 20th Century Design')">27</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 28, 2024 - Retrospective on 20th Century Design')">28</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 29, 2024 - Retrospective on 20th Century Design')">29</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 30, 2024 - Retrospective on 20th Century Design')">30</div>
+                    <div style="text-align: center; padding: 10px; border: 1px solid #ddd;"
+                        onclick="showEventDetails('March 31, 2024 - Retrospective on 20th Century Design')">31</div>
+
+                </div>
+                <div id="event-details" style="margin-top: 20px; padding: 10px; border: 1px solid #ddd; display: none;">
+                </div>
+            </div>
+
+
+
+            <script>
+                function showEventDetails(details) {
+                    const modal = document.createElement('div');
+                    modal.id = 'event-modal';
+                    modal.style.position = 'fixed';
+                    modal.style.top = '50%';
+                    modal.style.left = '50%';
+                    modal.style.transform = 'translate(-50%, -50%)';
+                    modal.style.backgroundColor = '#fff';
+                    modal.style.padding = '20px';
+                    modal.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+                    modal.style.borderRadius = '10px';
+                    modal.style.zIndex = '1000';
+                    modal.innerHTML = `
+                        <h3>Event Details</h3>
+                        <p>${details}</p>
+                        <button onclick="this.parentNode.parentNode.removeChild(this.parentNode)" style="margin-top: 10px; padding: 5px 10px; background-color: #f9d71c; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+                    `;
+
+                    document.body.appendChild(modal);
+                }
+            </script>
+
+
+
+
+            <!-- Sección de testimonios de visitantes -->
+            <div class="info-block" style="margin-top: 30px;">
+                <h2><i class="fas fa-comments"></i> Visitor Testimonials</h2>
+                <div class="testimonial"
+                    style="background-color: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <p><strong>Anna L.</strong></p>
+                    <p>"The 'Design Innovations 2024' exhibition was an eye-opener. Loved the interactive sections and
+                        the curated pieces!"</p>
+                    <p style="color: #f9d71c;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </p>
+                </div>
+                <div class="testimonial"
+                    style="background-color: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <p><strong>Mark T.</strong></p>
+                    <p>"The 'Art of Sustainability' was truly inspiring. It made me think differently about design and
+                        its impact on the environment."</p>
+                    <p style="color: #f9d71c;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </p>
+                </div>
+                <div class="testimonial"
+                    style="background-color: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <p><strong>Emily R.</strong></p>
+                    <p>"A perfect place to immerse yourself in the latest trends and gain valuable insights into design
+                        practices."</p>
+                    <p style="color: #f9d71c;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sección de videos destacados -->
+            <div class="info-block" style="margin-top: 30px;">
+                <h2><i class="fas fa-video"></i> Featured Videos</h2>
+                <div class="video-gallery" style="display: flex; flex-wrap: wrap; gap: 15px;">
+                    <div class="video-item"
+                        style="width: 48%; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/fp2e54V2KXc"
+                            frameborder="0" allowfullscreen></iframe>
+                        <p style="padding: 10px;">An exclusive look into the 'Design Innovations 2024' exhibit
+                            highlights.</p>
+                    </div>
+                    <div class="video-item"
+                        style="width: 48%; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/5ZRcgw12HKc"
+                            frameborder="0" allowfullscreen></iframe>
+                        <p style="padding: 10px;">Insights from the 'Art of Sustainability' featuring notable designers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Sección de preguntas frecuentes (FAQs) -->
+            <div class="info-block" style="margin-top: 30px;">
+                <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                <div class="faq-item" style="margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                    <p onclick="toggleFAQ(this)" style="cursor: pointer; font-weight: bold;">What are the exhibition
+                        hours? <i class="fas fa-chevron-down" style="float: right;"></i></p>
+                    <div class="faq-answer" style="display: none; margin-top: 5px;">
+                        <p>Our exhibitions are open from 10:00 AM to 6:00 PM, Monday through Sunday.</p>
+                    </div>
+                </div>
+                <div class="faq-item" style="margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                    <p onclick="toggleFAQ(this)" style="cursor: pointer; font-weight: bold;">Are there guided tours
+                        available? <i class="fas fa-chevron-down" style="float: right;"></i></p>
+                    <div class="faq-answer" style="display: none; margin-top: 5px;">
+                        <p>Yes, we offer guided tours every day at 11:00 AM and 3:00 PM. Reservations are recommended.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item" style="margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                    <p onclick="toggleFAQ(this)" style="cursor: pointer; font-weight: bold;">Is photography allowed
+                        during exhibitions? <i class="fas fa-chevron-down" style="float: right;"></i></p>
+                    <div class="faq-answer" style="display: none; margin-top: 5px;">
+                        <p>Photography without flash is permitted, but please respect any signs indicating restricted
+                            areas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function toggleFAQ(element) {
+                    const answer = element.nextElementSibling;
+                    const icon = element.querySelector('i');
+                    if (answer.style.display === 'none') {
+                        answer.style.display = 'block';
+                        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                    } else {
+                        answer.style.display = 'none';
+                        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    }
+                }
+            </script>
+
+            <!-- Galería de exhibiciones pasadas -->
+            <div class="info-block" style="margin-top: 30px;">
+                <h2><i class="fas fa-history"></i> Past Exhibitions</h2>
+                <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <img src="assets/images/past1.jpg" alt="Past Exhibition 1"
+                        style="width: 30%; height: 200px; object-fit: cover; border-radius: 10px;">
+                    <img src="assets/images/past2.jpg" alt="Past Exhibition 2"
+                        style="width: 30%; height: 200px; object-fit: cover; border-radius: 10px;">
+                    <img src="assets/images/past3.jpg" alt="Past Exhibition 3"
+                        style="width: 30%; height: 200px; object-fit: cover; border-radius: 10px;">
+                </div>
+            </div>
+
+            <script>
+                function showDetails(exhibitionName) {
+                    alert(`Details about ${exhibitionName} will be shown here.`);
+                }
+
+            </script>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Design Museum. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('load', function () {
+                document.documentElement.classList.remove('loading');
+            });
+
+            document.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    const target = e.currentTarget;
+                    if (!target.href.includes('#') && !target.href.startsWith('javascript:')) {
+                        e.preventDefault();
+                        const newUrl = this.href;
+
+                        document.documentElement.classList.add('loading');
+
+                        setTimeout(function () {
+                            window.location.href = newUrl;
+                        }, 500);
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menu = document.getElementById('menu');
+            const content = document.getElementById('content');
+            const showMenuButton = document.getElementById('show-menu-arrow');
+
+            function toggleMenu() {
+                menu.classList.toggle('collapsed');
+                updateContentLayout(menu.classList.contains('collapsed'));
+            }
+
+            function updateContentLayout(isCollapsed) {
+                if (isCollapsed) {
+                    content.style.marginLeft = '20px';
+                    content.style.width = 'calc(100% - 20px)';
+                    showMenuButton.style.display = 'block';
+                } else {
+                    content.style.marginLeft = '270px';
+                    content.style.width = 'calc(100% - 270px)';
+                    showMenuButton.style.display = 'none';
+                }
+            }
+
+            updateContentLayout(menu.classList.contains('collapsed'));
+
+            // Event listeners
+            menu.addEventListener('click', toggleMenu);
+            showMenuButton.addEventListener('click', function () {
+                if (menu.classList.contains('collapsed')) {
+                    menu.classList.remove('collapsed');
+                    updateContentLayout(false);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
